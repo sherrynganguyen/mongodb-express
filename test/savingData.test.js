@@ -9,14 +9,9 @@ describe('Saving records', function() {
     let char = new pokemonChar({
       name: "Pikachu",
       weight: "40"
-    })
-
-    const saveChar = (char) => {
-      char.save()
-      return char;
-    };
+    });
     
-    const result = await saveChar(char)
+    const result = await char.save()
     assert(result.isNew === false);
   });
 });

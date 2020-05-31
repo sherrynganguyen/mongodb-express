@@ -14,12 +14,7 @@ describe('Finding records', function() {
       weight: "40"
     });
   
-    const saveChar = (char) => {
-      char.save()
-      return char;
-    };
-    
-    const result = await saveChar(char);
+    const result = await char.save()
     assert(result.isNew === false);
 
   });
@@ -38,11 +33,11 @@ describe('Finding records', function() {
   it('Finds a record by ID to the database', async function() {
 
     const findData = (data) => {
-      const result = data.findOne({_id: char._id})
-      return result._conditions._id;
+      const result = data.findOne({_id: char._id.toString()})
+      return result;
     };
     
     const result = await findData(pokemonChar);
-    assert(result === char._id);
+    assert(result._id.toString() === char._id.toString());
   });
 });
