@@ -11,7 +11,7 @@ describe('Deleting records', function() {
   beforeEach(async function(){
     char = new pokemonChar({
       name: "Eevee",
-      weight: "40"
+      weight: 40
     });
   
     const result = await char.save()
@@ -21,8 +21,8 @@ describe('Deleting records', function() {
 
   it('Delete a record by name to the database', async function() {
     const recordToDelete = await pokemonChar.findOneAndRemove({name: "Eevee"});
-    const fountRecord = await pokemonChar.findOne({name: "Eevee"});
-    assert(fountRecord === null);
+    const foundRecord = await pokemonChar.findOne({name: "Eevee"});
+    assert(foundRecord === null);
   })
 
 });

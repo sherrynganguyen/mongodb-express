@@ -11,7 +11,7 @@ describe('Finding records', function() {
   beforeEach(async function(){
     char = new pokemonChar({
       name: "Pikachu",
-      weight: "40"
+      weight: 40
     });
   
     const result = await char.save()

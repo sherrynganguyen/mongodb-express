@@ -8,7 +8,7 @@ describe('Saving records', function() {
   it('Saves a record to the database', async function() {
     let char = new pokemonChar({
       name: "Pikachu",
-      weight: "40"
+      weight: 40
     });
     
     const result = await char.save()
