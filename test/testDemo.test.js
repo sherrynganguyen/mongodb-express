@@ -1,8 +1,22 @@
 const mocha = require('mocha');
 const assert = require('assert');
 
-describe('Some Demo Tests', () => {
-  it('Test 1', () => {
-    assert(2+3 === 5)
+const pokemonChar = require('../models/pokemonChar');
+
+
+describe('Saving records', function() {
+  it('Saves a record to the database', async function() {
+    let char = new pokemonChar({
+      name: "Pikachu",
+      weight: "40"
+    })
+
+    const saveChar = (char) => {
+      char.save()
+      return char;
+    };
+    
+    const result = await saveChar(char)
+    assert(result.isNew === false);
   });
 });
