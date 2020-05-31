@@ -4,7 +4,7 @@ const assert = require('assert');
 const pokemonChar = require('../models/pokemonChar');
 
 
-describe('Deleting records', function() {
+describe('Updating records', function() {
 
   let char;
 
@@ -19,10 +19,10 @@ describe('Deleting records', function() {
 
   });
 
-  it('Delete a record by name to the database', async function() {
-    const recordToDelete = await pokemonChar.findOneAndRemove({name: "Eevee"});
-    const fountRecord = await pokemonChar.findOne({name: "Eevee"});
-    assert(fountRecord === null);
+  it('Update a record by name to the database', async function() {
+    const recordToUpdate = await pokemonChar.findOneAndUpdate({name: "Eevee"},{name: "Snorlax"});
+    const fountRecord = await pokemonChar.findOne({name: "Snorlax"});
+    assert(fountRecord.name === "Snorlax");
   })
 
 });
